@@ -1,9 +1,21 @@
-import React from 'react';
+//Set The Dark/Light Mode
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
+import { SunIcon, MoonIcon } from "@heroicons/react/outline";
+
+import React from "react";
 import Image from "next/image";
 import Fade from "react-reveal/Fade";
 import SoundBar from "./SoundBar/SoundBar";
 
 const Header = ({ children }) => {
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <nav className="w-full fixed top-0 py-8 z-50 select-none bg-gradient-to-b from-gray-dark-5 shadow-gray-dark-5 transition-all duration-300">
       <Fade>
@@ -11,7 +23,7 @@ const Header = ({ children }) => {
           <a href="#home" className="link">
             <Image
               src="/logo.svg"
-              alt="Logo - Shubh Porwal"
+              alt="Logo - GABSI Aymen"
               width={25}
               height={25}
             />
@@ -28,6 +40,16 @@ const Header = ({ children }) => {
               <div className="relative flex-none w-full bg-white duration-300 flex items-center justify-center"></div>
             </div>
             {children}
+            {mounted && (
+              <button
+              className="absolute right-0"
+                onClick={() => {
+                  setTheme(resolvedTheme === "dark" ? "light" : "dark");
+                }}
+              >
+                {resolvedTheme === "dark" ? <SunIcon /> : <MoonIcon />}
+              </button>
+            )}
           </div>
         </div>
       </Fade>

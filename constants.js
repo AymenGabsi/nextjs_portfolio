@@ -1,9 +1,9 @@
 export const METADATA = {
-    title: "Portfolio | Shubh Porwal",
+    title: "Portfolio | Aymen Gabsi",
     description:
-      "Shubh Porwal is a Full Stack Developer from Kuwait, interested in crafting beautiful and functional applications. Shubh is pursuing his undergraduate from Pandit Deendayal Energy University, Gujarat.",
-    siteUrl: "https://shubhporwal.com/",
-    twitterHandle: "@shubh731",
+      "Aymen Gabsi is a Full Stack Developer from Tunisia, interested in crafting beautiful and functional applications.",
+      siteUrl: "https://example.com/",
+      twitterHandle: "@aymengabsi",
   };
   
   export const MENULINKS = [
